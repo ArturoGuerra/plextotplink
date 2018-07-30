@@ -7,8 +7,8 @@ Initialize(devices)
 
 async function setLights(event) {
   if (event == 'media.play' || event == 'media.resume') {
-    console.log('Setting brightness: ', 50)
-    await devices.control(1, true, 50)
+    console.log('Setting brightness: ', 5)
+    await devices.control(1, true, 5)
   } else if (event == 'media.stop' || event == 'media.pause') {
     console.log('Setting brightness: ', 100)
     await devices.control(1, true, 100)

@@ -1,5 +1,6 @@
 const express = require('express');
 const multer = require('multer');
+const morgan = require('morgan');
 const http = require('http');
 
 const app = new express();
@@ -21,6 +22,8 @@ config.dev = !(process.env.NODE_ENV === 'production')
 if (!config.dev) {
   app.set('trust proxy', true)
 }
+
+app.use(morgan('short'))
 
 app.post(path, upload.single('thumb'), require('./plex'))
 

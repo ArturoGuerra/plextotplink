@@ -27,7 +27,8 @@ function Devices () {
       let items = []
       for (let i = 0; i < group.items.length; i++) {
         try {
-          items.push(await client.getBulb({ host: group.items[i].host }))
+          let bulb = await client.getBulb({ host: group.items[i].host })
+          items.push(bulb)
         } catch (e) {
           console.error(e.message)
         }
@@ -61,6 +62,11 @@ function Devices () {
         group = this.groups[i]
         break
       }
+    }
+
+    if (!group) {
+      console.log('error group not found')
+      return
     }
 
     group.items.forEach(async (bulb) => {
