@@ -1,7 +1,7 @@
 const { Client } = require('tplink-smarthome-api');
 
 const client = new Client();
-const TRANSITION_TIME = process.env.TRANSITION_TIME || 100
+const TRANSITION_TIME = process.env.TRANSITION_TIME || 500
 
 let config
 try {
