@@ -16,8 +16,10 @@ async function setLights(event) {
 }
 
 module.exports = async (req, res) => {
+  console.log(req)
   let payload = JSON.parse(req.body.payload);
 
+//  if (!payload.Player.local) return
   if (payload.Account.id != uid) return
 
   await setLights(payload.event)
